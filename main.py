@@ -50,4 +50,52 @@ print(task3(21, mode="oct"), f"assert: {oct(21)}")
 # не менее 42 знаков после запятой
 
 
+import math
+import decimal
+
+
+def circle(d: decimal) -> tuple[decimal, decimal]:
+    decimal.getcontext().prec = 42
+    _pi = decimal.Decimal(math.pi)
+    if d <= 1000:
+        s = (_pi * d ** 2) / 4
+        l = _pi * d
+
+    return decimal.Decimal(s), decimal.Decimal(l)
+
+
+print(circle(decimal.Decimal(34)))
+
+
+'''
+Задание №5
+✔ Напишите программу, которая решает
+квадратные уравнения даже если
+дискриминант отрицательный.
+✔ Используйте комплексные числа
+для извлечения квадратного корня
+
+ax2 + bx + c = 0, где коэффициенты a, b и c — произвольные числа, причем a ≠ 0.
+Пусть дано квадратное уравнение ax2 + bx + c = 0. Тогда дискриминант — это просто число D = b2 − 4ac.
+'''
+
+a = int(input('Введите коэффициент a не равный 0 :'))
+b = int(input('Введите коэффициент b :'))
+c = int(input('Введите коэффициент c :'))
+
+d = b**2 - 4 * a * c
+print(d)
+
+if d == 0:
+    x = (-b) / 2 * a
+    print(x)
+else:
+    d = abs(d)
+    x1 = (-b - math.sqrt(d)) / 2 * a
+    x2 = (-b + math.sqrt(d)) / 2 * a
+    print(x1)
+    print(x2)
+
+
+
 
